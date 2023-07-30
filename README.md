@@ -42,7 +42,7 @@ final (lambda, delta) = apparent(djd); // 199.9, .9975999344847888
 ```
 
 ```dart
-// Apparent position of the Mars
+// Apparent position of a planet
 import 'package:kepler/ephemeris.dart';
 
 final eph = Ephemeris.forDJD(30830.5); // 1984 May 30
