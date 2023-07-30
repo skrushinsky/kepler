@@ -1,0 +1,22 @@
+name: kepler
+description: A starting point for Dart libraries or applications.
+version: 1.0.0
+repository: git@github.com:skrushinsky/kepler.git
+publish_to: none
+
+environment:
+  sdk: ^3.0.5
+
+# Add regular dependencies here.
+dependencies:
+  # path: ^1.8.0
+
+  scaliger:
+    git:
+      url: https://github.com/skrushinsky/scaliger.git
+      ref: master # branch name
+  vector_math: ^2.1.4
+
+dev_dependencies:
+  lints: ^2.0.0
+  test: ^1.21.0
