@@ -48,7 +48,7 @@ import 'package:kepler/ephemeris.dart';
 final eph = Ephemeris.forDJD(30830.5); // 1984 May 30
 final pos = eph.geocentricPosition("Mercury");
 
-print('lambda: ${pos.lambda}, beta: ${pos.beta}, delta: ${pos.delta}')
+print('lambda: ${pos.lambda}, beta: ${pos.beta}, delta: ${pos.delta}');
 ```
 
 
