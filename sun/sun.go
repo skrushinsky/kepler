@@ -1,7 +1,3 @@
-// The main purpose is to convert between civil dates and Julian dates.
-// Julian date (JD) is the number of days elapsed since mean UT noon of
-// January 1st 4713 BC. This system of time measurement is widely adopted by
-// the astronomers.
 package sun
 
 import (
@@ -13,7 +9,6 @@ import (
 )
 
 const ABERRATION = 5.69e-3 // aberration in degrees
-const _PI2 = math.Pi * 2
 
 // Controls  type of the result.
 type SunOptions struct {
