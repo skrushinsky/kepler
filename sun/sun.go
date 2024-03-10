@@ -22,6 +22,9 @@ type SunOptions struct {
 	meanAnomaly float64
 }
 
+var sin = math.Sin
+var cos = math.Cos
+
 // Mean longitude of the Sun, arc-degrees
 func MeanLongitude(t float64) float64 {
 	return mathutils.ReduceDeg(2.7969668e2 + 3.025e-4*t*t + mathutils.Frac360(1.000021359e2*t))
@@ -50,19 +53,19 @@ func TrueGeocentric(t, ms, ls float64) (lsn float64, rsn float64) {
 	e := mathutils.Radians(231.19 + 20.2*t)         // inequality of long period
 
 	// correction in orbital longitude
-	dl := 1.34e-3*math.Cos(a) +
-		1.54e-3*math.Cos(b) +
-		2e-3*math.Cos(c) +
-		1.79e-3*math.Sin(d) +
-		1.78e-3*math.Sin(e)
+	dl := 1.34e-3*cos(a) +
+		1.54e-3*cos(b) +
+		2e-3*cos(c) +
+		1.79e-3*sin(d) +
+		1.78e-3*sin(e)
 	// correction in radius-vector
-	dr := 5.43e-6*math.Sin(a) +
-		1.575e-5*math.Sin(b) +
-		1.627e-5*math.Sin(c) +
-		3.076e-5*math.Cos(d) +
-		9.27e-6*math.Sin(h)
+	dr := 5.43e-6*sin(a) +
+		1.575e-5*sin(b) +
+		1.627e-5*sin(c) +
+		3.076e-5*cos(d) +
+		9.27e-6*sin(h)
 	lsn = mathutils.ReduceDeg(mathutils.Degrees(nu) + ls - ms + dl)
-	rsn = 1.0000002*(1-s*math.Cos(ea)) + dr
+	rsn = 1.0000002*(1-s*cos(ea)) + dr
 	return
 }
 
