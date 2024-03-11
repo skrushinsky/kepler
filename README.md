@@ -3,6 +3,18 @@
 Library of core routines for practical astronomy. It is named in honor of 
 *Johannes Kepler (1571-1630)*, German astronomer, mathematician, astrologer and natural philosopher.
 
+- [Kepler](#kepler)
+  - [Features](#features)
+  - [Quick Start](#quick-start)
+  - [Usage](#usage)
+    - [Sun and Moon](#sun-and-moon)
+    - [Planets](#planets)
+    - [Utulities](#utulities)
+  - [See also](#see-also)
+  - [How to contribute](#how-to-contribute)
+  - [Sources](#sources)
+
+
 ## Features
 
 * Accurate positions of Sun, Moon and the planets, including _Pluto_.
@@ -35,8 +47,8 @@ TODO
 ### Utulities
 
 * `core.EccentricAnomaly(s, m, ea float64) float64` solves Kepler equation.
-* `core.TrueAnomaly(s, ea float64) float64` Given s, eccentricity, and ea, eccentric anomaly, finds true anomaly.
-* `core.Map(data []float64, f func(float64) float64) []float64` applies f function to each element of data slice.
+* `core.TrueAnomaly(s, ea float64) float64` Given **s**, eccentricity, and **ea**, eccentric anomaly, finds true anomaly.
+* `core.Map(data []float64, f func(float64) float64) []float64` applies **f** function to each element of **data** slice.
 
 ## See also
 
