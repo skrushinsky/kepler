@@ -1,6 +1,6 @@
 # Kepler
 
-. It is named in honor of 
+Library of core routines for practical astronomy. It is named in honor of 
 *Johannes Kepler (1571-1630)*, German astronomer, mathematician, astrologer and natural philosopher.
 
 ## Features
