@@ -58,8 +58,7 @@ TODO
 ## How to contribute
 
 You may contribute to the project by many different ways, starting from refining and correcting its documentation,
-especially if you are a native English speaker, and ending with improving the code base. Any kind of testing and
-suggestions are welcome.
+especially if you are a native English speaker, and ending with improving the code base. Any kind of testing and suggestions is welcome.
 
 You may follow the standard Github procedures or, in case you are not comfortable with them, just send your suggestions
 to the author by other means.
