@@ -9,7 +9,7 @@ Library of core routines for practical astronomy. It is named in honor of
   - [Usage](#usage)
     - [Sun and Moon](#sun-and-moon)
     - [Planets](#planets)
-    - [Utulities](#utulities)
+    - [Utilities](#utilities)
   - [See also](#see-also)
   - [How to contribute](#how-to-contribute)
   - [Sources](#sources)
@@ -44,7 +44,7 @@ $ go get github.com/skrushinsky/kepler
 
 TODO
 
-### Utulities
+### Utilities
 
 * `core.EccentricAnomaly(s, m, ea float64) float64` solves Kepler equation.
 * `core.TrueAnomaly(s, ea float64) float64` Given **s**, eccentricity, and **ea**, eccentric anomaly, finds true anomaly.
