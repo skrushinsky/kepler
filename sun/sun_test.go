@@ -62,7 +62,7 @@ func TestApparent(t *testing.T) {
 		tperiod := test.djd / julian.DAYS_PER_CENT
 		jd := test.djd + julian.J1900
 		dpsi, _ := nutequ.Nutation(jd)
-		opts := SunOptions{
+		opts := ApparentSunOptions{
 			meanAnomaly:       MeanAnomaly(tperiod),
 			meanLongitude:     MeanLongitude(tperiod),
 			ignoreLightTravel: true,

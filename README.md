@@ -1,7 +1,7 @@
 # Kepler
 
-Library of core routines for practical astronomy. It is named in honor of 
-*Johannes Kepler (1571-1630)*, German astronomer, mathematician, astrologer, natural philosopher and writer on music.
+. It is named in honor of 
+*Johannes Kepler (1571-1630)*, German astronomer, mathematician, astrologer and natural philosopher.
 
 ## Features
 
@@ -15,6 +15,28 @@ Library of core routines for practical astronomy. It is named in honor of
 $ go get github.com/skrushinsky/kepler
 
 ```
+
+## Usage
+
+### Sun and Moon
+
+* `sun.TrueGeocentric(t, ms, ls float64) (lsn float64, rsn float64)` calculates true geocentric longitude of the Sun for the mean equinox of date and the Sun-Earth distance.
+* `sun.Apparent(jd float64, options ApparentSunOptions) core.EclipticPosition` apparent geocentric ecliptical longitude of the Sun.
+* `sun.MeanLongitude(t float64) float64` Mean longitude of the Sun.
+* `sun.MeanAnomaly(t float64) float64` Mean anomaly of the Sun. 
+* `moon.MeanLunarNode(t float64) float64` Mean Lunar Node. 
+* `moon.LunarNode(jd float64, mean bool) float64` Mean or True Lunar Node.
+* `moon.TruePosition(jd float64) (pos core.EclipticPosition, parallax, motion float64)` Moon position, horizontal parallax and daily motion for mean equinox of date.
+
+### Planets
+
+TODO
+
+
+## See also
+
+[Library of date/time manipulation routines for practical astronomy](https://github.com/skrushinsky/scaliger)
+
 
 ## How to contribute
 

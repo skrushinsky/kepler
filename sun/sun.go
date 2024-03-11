@@ -10,8 +10,8 @@ import (
 
 const ABERRATION = 5.69e-3 // aberration in degrees
 
-// Controls  type of the result.
-type SunOptions struct {
+// Controls type of the result.
+type ApparentSunOptions struct {
 	// nutation in longitude, degrees
 	dpsi float64
 	// ignore light-time travel correction?
@@ -25,16 +25,24 @@ type SunOptions struct {
 var sin = math.Sin
 var cos = math.Cos
 
-// Mean longitude of the Sun, arc-degrees
+// Mean longitude of the Sun, arc-degrees for t, Julian centuries since 1900 Jan, 0.5.
 func MeanLongitude(t float64) float64 {
 	return mathutils.ReduceDeg(2.7969668e2 + 3.025e-4*t*t + mathutils.Frac360(1.000021359e2*t))
 }
 
-// Mean anomaly of the Sun, arc-degrees
+// Mean anomaly of the Sun, arc-degrees, for t, Julian centuries since 1900 Jan, 0.5.
 func MeanAnomaly(t float64) float64 {
 	return mathutils.ReduceDeg(3.5847583e2 - (1.5e-4+3.3e-6*t)*t*t + mathutils.Frac360(9.999736042e1*t))
 }
 
+// Calculates true geocentric longitude of the Sun for the mean equinox
+// of date (degrees), and the Sun-Earth distance (AU) for moment t,
+// Julian centuries since 1900 Jan, 0.5.
+//
+// ms is mean anomaly of the Sun and ls is mean longitude. See [MeanAnomaly] and
+// [MeanLongitude] functions.
+//
+// All angles in arc-degrees.
 func TrueGeocentric(t, ms, ls float64) (lsn float64, rsn float64) {
 	ma := mathutils.Radians(ms)
 	s := mathutils.Polynome(t, 1.675104e-2, -4.18e-5, -1.26e-7) // eccentricity
@@ -69,10 +77,11 @@ func TrueGeocentric(t, ms, ls float64) (lsn float64, rsn float64) {
 	return
 }
 
-func Apparent(jd float64, options SunOptions) core.EclipticPosition {
+// Find apparent geocentric ecliptical longitude of the Sun.
+// See [ApparentSunOptions] for details.
+// All angles in arc-degrees.
+func Apparent(jd float64, options ApparentSunOptions) core.EclipticPosition {
 	t := (jd - julian.J1900) / julian.DAYS_PER_CENT
-	// ms := MeanAnomaly(t)
-	// ls := MeanLongitude(t)
 	lsn, rsn := TrueGeocentric(t, options.meanAnomaly, options.meanLongitude)
 	lsn += options.dpsi // correct for nutation
 	lsn -= ABERRATION   // correct for aberration

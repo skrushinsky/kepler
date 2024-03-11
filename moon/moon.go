@@ -52,11 +52,15 @@ var reduceDeg = mathutils.ReduceDeg
 
 // Mean Lunar Node.
 // t is a number of Julian centuries elapsed since 1900, Jan 0.5.
-// Return longitude in degrees.
-func MeanNode(t float64) float64 {
+// Returns degrees.
+func MeanLunarNode(t float64) float64 {
 	return reduceDeg(polynome(t, 125.0445479, -1934.1362891, 0.0020754, 1.0/467441, 1.0/60616000))
 }
 
+// Longitude of Lunar Node, arc-degrees.
+// jd is a Standard Julian Date.
+// If mean is false (the default), the result refers to the true equinox of the date, otherwise
+// to the mean equinox of date, so the result is equal to [MeanLunarNode].
 func LunarNode(jd float64, mean bool) float64 {
 	t := (jd - julian.J2000) / julian.DAYS_PER_CENT
 	mn := polynome(t, 125.0445479, -1934.1362891, 0.0020754, 1.0/467441, 1.0/60616000)
