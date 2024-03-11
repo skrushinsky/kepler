@@ -32,6 +32,11 @@ $ go get github.com/skrushinsky/kepler
 
 TODO
 
+### Utulities
+
+* `core.EccentricAnomaly(s, m, ea float64) float64` solves Kepler equation.
+* `core.TrueAnomaly(s, ea float64) float64` Given s, eccentricity, and ea, eccentric anomaly, finds true anomaly.
+* `core.Map(data []float64, f func(float64) float64) []float64` applies f function to each element of data slice.
 
 ## See also
 
